@@ -2,12 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet"  href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Eko Bazarek</title>
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <main>
+      <section id="types">
+          <div>
+          <div class="types">Typy</div>
+          <ul id="type-list">
+              <li><button id="DAIRY">Nabiał</button></li>
+              <li><button id="FRUITS">Owoce</button></li>
+              <li><button id="VEGETABLE">Warzywa</button></li>
+              <li><button id="MEAT">Mieso</button></li>
+              <li><button id="FISH">Ryby</button></li>
+              <li><button id="HONEY">Miody</button></li>
+              <li><button id="WINE_AND_SPIRITS">Alkohole</button></li>
+              <li><button id="COOKED_MEATS">Wedliny</button></li>
+              <li><button id="CEREALS">Zboza</button></li>
+              <li><button id="OTHER">Pozostale</button></li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="categories">
+        <div>
+          <div class="categories">Kategorie</div>
+          <ul id="category-list">
+              <li data-category-type="DAIRY">Kategoria 1</li>
+              <li data-category-type="FRUITS">Kategoria owoców 1</li>
+
+          </ul>
+        </div>
+      </section>
+  </main>
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>
