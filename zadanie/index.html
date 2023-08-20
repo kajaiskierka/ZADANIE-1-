@@ -1,18 +1,23 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet"  href="style.css" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eko Bazarek</title>
   </head>
+
   <body>
     <div id="app"></div>
     <main>
-      <section id="types">
+      <aside class="leftmenu">
+        <section id="types">
           <div>
-          <div class="types">Typy</div>
-          <ul id="type-list">
+            <h2>
+              <div class="types">Typy</div>
+            </h2>
+            <ul id="typeList">
               <li><button id="DAIRY">Nabiał</button></li>
               <li><button id="FRUITS">Owoce</button></li>
               <li><button id="VEGETABLE">Warzywa</button></li>
@@ -23,22 +28,32 @@
               <li><button id="COOKED_MEATS">Wedliny</button></li>
               <li><button id="CEREALS">Zboza</button></li>
               <li><button id="OTHER">Pozostale</button></li>
-          </ul>
-        </div>
-      </section>
-      
+            </ul>
+          </div>
+          <label class="switch">
+            <input type="checkbox"> Vege only</input>
+          </label>
+        </section>
+      </aside>
+
       <section id="categories">
         <div>
-          <div class="categories">Kategorie</div>
-          <ul id="category-list">
-              <li data-category-type="DAIRY">Kategoria 1</li>
-              <li data-category-type="FRUITS">Kategoria owoców 1</li>
+          <h2>
+            <div class="categories">Kategorie</div>
+          </h2>
+          <ul id="categoryList">
+
+            <li data-category-type="DAIRY">produkt kategoria 1</li>
+            <li data-category-type="FRUITS">produkt kategoria 2</li>
 
           </ul>
         </div>
       </section>
-  </main>
+    </main>
 
     <script type="module" src="main.js"></script>
+
   </body>
+  <footer>App icons by&nbsp;<a href="https://icons8.com/license"> icons8</a></footer>
+
 </html>

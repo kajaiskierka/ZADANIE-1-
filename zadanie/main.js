@@ -62,8 +62,8 @@ fetch(https://api-eko-bazarek.azurewebsites.net/api/products/types)
 
 const typesUrl = "https://api-eko-bazarek.azurewebsites.net/api/products/types";
 const categoriesUrl = "https://api-eko-bazarek.azurewebsites.net/api/products/categories";
-var buttonGet = document.getElementById('DAIRY');
-var buttons = document.querySelectorAll('ul button')
+// var buttonGet = document.getElementById('DAIRY');
+var buttons = document.querySelectorAll('ul button');
 var typeList = document.getElementById('typeList');
 var categories = []
 getCategories().then(result => {
@@ -71,14 +71,42 @@ getCategories().then(result => {
   console.log(categories)
 })
 
+// function displayCategory(categories) {
+//   categories.forEach
+// }
 function displayCategory(categories) {
-  categories.forEach
+  // categoryList.innerHTML = '';
+  categories.forEach(category => {
+    const categoryElement = document.createElement('li');
+    categoryElement.textContent = `ID: ${category.id}, Nazwa: ${category.name}`;
+    typeList.appendChild(categoryElement);
+  });
 }
+
+
+// displayCategory(categories);
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-  })
-})
+    const categoryId = button.getAttribute('data-category-id');
+    const categoryName = button.getAttribute('data-category-name');
+    // filterById(categoryId);
+    console.log(`${categoryName}`);
+    // (`Kategoria ID: ${categoryId}, Nazwa: ${categoryName}`);
+
+    displayCategory(categories);
+
+    
+  });
+});
+
+// function filterById(categoryId) {
+//   const filteredCategories = categories.filter(category => category.id === categoryId);
+//   addCategoryElements(filteredCategories);
+// }
+// displayCategory(categories);
+//   })
+// })
 
 async function getCategories() {
   const response = await fetch(categoriesUrl)
@@ -92,19 +120,3 @@ async function getCategories() {
 }
 
 
-
-/*buttonGet.addEventListener('click',() => {
-
- getDairy().then((Dairy) => {
-    Dairy.forEach(Dairy => {
-      let element = document.createElement('li');
-      element.innerHTML=`<span>name: ${nazwa.nazwa} type: ${typ}</span>`
-    });
-  })
-});
-
-async function getDiary(){
-  const response = await fetch(apiUrl);
-  return response.json();
-}
-*/
