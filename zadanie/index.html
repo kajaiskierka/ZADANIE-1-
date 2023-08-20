@@ -1,34 +1,37 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eko Bazarek</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eko Bazarek</title>
+</head>
 
-  <body>
-    <div id="app"></div>
-    <main>
+<body>
+  <div id="app"></div>
+  <main>
+    <div class="all">
       <aside class="leftmenu">
         <section id="types">
           <div>
-            <h2>
-              <div class="types">Typy</div>
-            </h2>
-            <ul id="typeList">
-              <li><button id="DAIRY">Nabiał</button></li>
-              <li><button id="FRUITS">Owoce</button></li>
-              <li><button id="VEGETABLE">Warzywa</button></li>
-              <li><button id="MEAT">Mieso</button></li>
-              <li><button id="FISH">Ryby</button></li>
-              <li><button id="HONEY">Miody</button></li>
-              <li><button id="WINE_AND_SPIRITS">Alkohole</button></li>
-              <li><button id="COOKED_MEATS">Wedliny</button></li>
-              <li><button id="CEREALS">Zboza</button></li>
-              <li><button id="OTHER">Pozostale</button></li>
-            </ul>
+            <div class="types">
+              <h2>
+                Typy
+              </h2>
+              <ul id="typeList">
+                <li><button id="DAIRY" class="typesButton">Nabiał</button></li>
+                <li><button id="FRUITS" class="typesButton">Owoce</button></li>
+                <li><button id="VEGETABLE" class="typesButton">Warzywa</button></li>
+                <li><button id="MEAT" class="typesButton">Mieso</button></li>
+                <li><button id="FISHES" class="typesButton">Ryby</button></li>
+                <li><button id="HONEY" class="typesButton">Miody</button></li>
+                <li><button id="WINE_AND_SPIRITS" class="typesButton">Alkohole</button></li>
+                <li><button id="COOKED_MEATS" class="typesButton">Wedliny</button></li>
+                <li><button id="CEREALS" class="typesButton">Zboza</button></li>
+                <li><button id="OTHER" class="typesButton">Pozostale</button></li>
+              </ul>
+            </div>
           </div>
           <label class="switch">
             <input type="checkbox"> Vege only</input>
@@ -41,19 +44,19 @@
           <h2>
             <div class="categories">Kategorie</div>
           </h2>
-          <ul id="categoryList">
+          <div id="categoryList">
 
-            <li data-category-type="DAIRY">produkt kategoria 1</li>
-            <li data-category-type="FRUITS">produkt kategoria 2</li>
 
-          </ul>
+          </div>
+          <div class="errormssg"></div>
         </div>
       </section>
-    </main>
+    </div>
+  </main>
 
-    <script type="module" src="main.js"></script>
+  <script type="module" src="main.js"></script>
 
-  </body>
-  <footer>App icons by&nbsp;<a href="https://icons8.com/license"> icons8</a></footer>
+</body>
+<footer>App icons by&nbsp;<a href="https://icons8.com/license"> icons8</a></footer>
 
 </html>
