@@ -5,11 +5,16 @@ const categoriesUrl = "https://api-eko-bazarek.azurewebsites.net/api/products/ca
 var buttons = document.querySelectorAll('ul button');
 console.log(buttons)
 var typeList = document.getElementById('typeList');
+
+
 var categories = []
 getCategories().then(result => {
-  categories = result
-  console.log(categories)
+  categories = result;
+  console.log(categories);
+  displayCategory(categories);
+  
 })
+
 
 function displayCategory(categories) {
   var categoryList = document.querySelector('#categoryList')
@@ -17,7 +22,7 @@ function displayCategory(categories) {
   categoryList.innerHTML = '';
   categories.sort((categoryA, categoryB) => categoryA.name.localeCompare(categoryB.name));
   categories.forEach(category => {
-    var categoryElement = document.createElement('div');
+    var categoryElement = document.createElement('button');
     categoryElement.setAttribute('class','eachProduct');
     var categoryImage = document.createElement('img')
     categoryImage.src = category.iconUrl
@@ -61,6 +66,32 @@ function filterCategoriesById(categories, id) {
   return filteredCat1; 
 }
 
+//
+var checkbox = document.getElementById(vegeCheck);
+const vegeItems = document.querySelectorAll(
+  'DAIRY',
+  'FRUITS',
+  'VEGETABLE',
+  'HONEY',
+  'WINE_AND_SPIRITS',
+  'CEREAL',
+  'OTHER');
+
+
+
+vegeCheck.addEventListener('change', () => {
+  vegeItems.forEach(category => {
+    if(vegeCheck.checked) {
+      category.style.display = 'block';
+      }
+      else {
+        category.style.display ='none';
+      }
+  });
+});
+//nie dziala
+
+
 
 async function getCategories() {
   try {
@@ -75,7 +106,7 @@ async function getCategories() {
 }
 catch (error) {
   const errormssg = document.getElementById('error-message');
-  errormssg.textContent = 'Nie udało się pobrać kategorri' + error.message;
+  errormssg.textContent = 'Nie udało się pobrać kategorii' + error.message;
   }
 }
 
