@@ -12,7 +12,7 @@ getCategories().then(result => {
   categories = result;
   console.log(categories);
   displayCategory(categories);
-  
+
 })
 
 
@@ -23,7 +23,7 @@ function displayCategory(categories) {
   categories.sort((categoryA, categoryB) => categoryA.name.localeCompare(categoryB.name));
   categories.forEach(category => {
     var categoryElement = document.createElement('button');
-    categoryElement.setAttribute('class','eachProduct');
+    categoryElement.setAttribute('class', 'eachProduct');
     var categoryImage = document.createElement('img')
     categoryImage.src = category.iconUrl
     categoryImage.id = category.name
@@ -62,51 +62,47 @@ function filterCategoriesById(categories, id) {
   //     filteredCat2.push(c)
   //   }
   // })
-  
-  return filteredCat1; 
+
+  return filteredCat1;
 }
 
 //
-var checkbox = document.getElementById(vegeCheck);
-const vegeItems = document.querySelectorAll(
-  'DAIRY',
-  'FRUITS',
-  'VEGETABLE',
-  'HONEY',
-  'WINE_AND_SPIRITS',
-  'CEREAL',
-  'OTHER');
+var checkbox = document.getElementById('vegeCheck');
+var typeButtons = document.querySelectorAll('.typesButton'); // Przyjmuje wszystkie przyciski typów
 
-
-
-vegeCheck.addEventListener('change', () => {
-  vegeItems.forEach(category => {
-    if(vegeCheck.checked) {
-      category.style.display = 'block';
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    typeButtons.forEach(button => {
+      if (button.id === 'DAIRY' || button.id === 'FRUITS' || button.id === 'VEGETABLE' || button.id === 'HONEY' || button.id === 'WINE_AND_SPIRITS' || button.id === 'CEREAL' || button.id === 'OTHER') {
+        button.style.display = 'block';
+      } else {
+        button.style.display = 'none';
       }
-      else {
-        category.style.display ='none';
-      }
-  });
+    });
+  } else {
+    typeButtons.forEach(button => {
+      button.style.display = 'block';
+    });
+  }
 });
-//nie dziala
+
 
 
 
 async function getCategories() {
   try {
-  const response = await fetch(categoriesUrl);
+    const response = await fetch(categoriesUrl);
 
-  if (response.ok) {
-    return response.json();
+    if (response.ok) {
+      return response.json();
+    }
+    else {
+      throw new Error('nie udalo sie pobrac kategorii. status:' + response.status);
+    }
   }
-  else {
-    throw new Error('nie udalo sie pobrac kategorii. status:' + response.status);
-  }
-}
-catch (error) {
-  const errormssg = document.getElementById('error-message');
-  errormssg.textContent = 'Nie udało się pobrać kategorii' + error.message;
+  catch (error) {
+    const errormssg = document.getElementById('error-message');
+    errormssg.textContent = 'Nie udało się pobrać kategorii' + error.message;
   }
 }
 
